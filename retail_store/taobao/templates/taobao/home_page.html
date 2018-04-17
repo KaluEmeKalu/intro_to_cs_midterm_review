@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Kool Karen Taobao</title>
+</head>
+<body>
+	<h1>Kool Karen Retail Store</h1>
+	<p>Your convenience is our duty</p>
+
+	<h2>Here are all our items!</h2>
+
+	<!-- Item 1 -->
+	<p>Water: 12RMB</p>
+	<img src="https://tse2-mm.cn.bing.net/th?id=OIP.QpJtVsC4fgQWo5uM4GVRsQHaHa&pid=Api">
+	<br>
+
+	<!-- Item 2 -->
+	<p>Toothbrush: 7RMB</p>
+	<img src="http://pics.drugstore.com/prodimg/146927/450.jpg">
+
+	<!-- Item 3 -->
+	<p>Chips: 10RMB</p>
+	<img src="http://deals.simplyshellie.com/wp-content/uploads/2012/08/lays-chips.jpeg">
+
+	<!-- Order Form -->
+	<h2>Place your Order</h2>
+	<form action="{% url 'taobao:home_page' %}" method="POST">
+		{% csrf_token %}	
+		<input type="text" name="item" placeholder="Please Type Which Item You Want"><br>
+		<textarea name="address" placeholder="Please Type Your Address"></textarea><br>
+		<input type="submit" value="Place Your Order">
+	</form>
+
+	<!-- Show Order -->
+	<h1>Your Order:</h1>
+	<p>Item Ordered: {{item}}</p>
+	<p>Delivery Address: {{address}}</p>
+
+</body>
+</html>
